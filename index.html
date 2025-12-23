@@ -26,7 +26,7 @@
                         'deep-black': '#0a0a0a',
                         'accent': '#dbf26e',
                         'accent-dark': '#c4db5a',
-                        'light-bg': '#f5f5f5',
+                        'light-bg': '#ffffff',
                         'glass': 'rgba(255, 255, 255, 0.05)',
                     },
                     fontFamily: {
@@ -201,6 +201,26 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
+
+        /* Custom Video Player Styling */
+        video {
+            outline: none;
+        }
+
+        video::-webkit-media-controls-panel {
+            background: linear-gradient(to top, rgba(10, 10, 10, 0.9), transparent);
+        }
+
+        video::-webkit-media-controls-play-button,
+        video::-webkit-media-controls-volume-slider,
+        video::-webkit-media-controls-mute-button,
+        video::-webkit-media-controls-fullscreen-button {
+            filter: brightness(1.2);
+        }
+
+        .video-card:hover video::-webkit-media-controls-play-button {
+            filter: brightness(1.5) saturate(1.2);
+        }
     </style>
 </head>
 
@@ -221,6 +241,8 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden md:flex items-center gap-8">
+                    <a href="#demos"
+                        class="text-gray-400 hover:text-white transition-colors duration-300 text-sm font-medium">Demos</a>
                     <a href="#features"
                         class="text-gray-400 hover:text-white transition-colors duration-300 text-sm font-medium">Features</a>
                     <a href="#about"
@@ -308,6 +330,151 @@
     </section>
 
     <!-- ============================================ -->
+    <!-- VIDEO DEMO SECTION -->
+    <!-- ============================================ -->
+    <section id="demos" class="relative bg-deep-black py-24 md:py-32 overflow-hidden">
+        <!-- Background Elements -->
+        <div class="absolute inset-0 grid-bg opacity-30"></div>
+        <div class="absolute top-0 left-1/4 w-[600px] h-[600px] bg-accent/5 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-purple-500/5 rounded-full blur-3xl"></div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-6">
+            <!-- Section Header -->
+            <div class="text-center mb-16">
+                <span class="fade-up inline-flex items-center gap-2 glass-card px-4 py-2 rounded-full mb-6">
+                    <svg class="w-4 h-4 text-accent" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd"
+                            d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"
+                            clip-rule="evenodd" />
+                    </svg>
+                    <span class="text-gray-400 text-sm font-medium">See It In Action</span>
+                </span>
+                <h2 class="fade-up text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
+                    Watch the <span class="text-accent">Magic</span> Happen
+                </h2>
+                <p class="fade-up text-gray-400 text-lg max-w-2xl mx-auto">
+                    Experience the power of VeoForge through real demo videos. See how AI transforms your creative
+                    workflow.
+                </p>
+            </div>
+
+            <!-- Video Grid - 9:16 Portrait Videos -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8 max-w-4xl mx-auto">
+                <!-- Video Card 1 -->
+                <div class="fade-up group">
+                    <div
+                        class="video-card glass-card rounded-3xl p-3 sm:p-4 md:p-5 transition-all duration-500 hover:border-accent/30 hover:shadow-[0_0_40px_rgba(219,242,110,0.15)]">
+                        <!-- Video Container - 9:16 aspect ratio -->
+                        <div class="relative rounded-2xl overflow-hidden bg-black/50">
+                            <video class="w-full aspect-[9/16] object-cover max-h-[500px] sm:max-h-[600px]" controls
+                                preload="metadata" poster="">
+                                <source src="assets/Final_Output.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                            <!-- Play Overlay (visible when paused) -->
+                            <div
+                                class="video-overlay absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                                <div
+                                    class="w-16 h-16 sm:w-20 sm:h-20 bg-accent/90 rounded-full flex items-center justify-center transform scale-90 group-hover:scale-100 transition-transform duration-300">
+                                    <svg class="w-6 h-6 sm:w-8 sm:h-8 text-deep-black" fill="currentColor"
+                                        viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd"
+                                            d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"
+                                            clip-rule="evenodd" />
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Video Info -->
+                        <div class="mt-4 flex items-start justify-between gap-3">
+                            <div>
+                                <h3
+                                    class="text-white font-bold text-lg sm:text-xl mb-1 group-hover:text-accent transition-colors">
+                                    Demo Showcase</h3>
+                                <p class="text-gray-400 text-xs sm:text-sm leading-relaxed">See VeoForge's core features
+                                    in action.</p>
+                            </div>
+                            <div
+                                class="flex-shrink-0 w-9 h-9 sm:w-10 sm:h-10 bg-accent/10 rounded-xl flex items-center justify-center group-hover:bg-accent/20 transition-colors">
+                                <svg class="w-4 h-4 sm:w-5 sm:h-5 text-accent" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Video Card 2 -->
+                <div class="fade-up group" style="transition-delay: 0.1s;">
+                    <div
+                        class="video-card glass-card rounded-3xl p-3 sm:p-4 md:p-5 transition-all duration-500 hover:border-accent/30 hover:shadow-[0_0_40px_rgba(219,242,110,0.15)]">
+                        <!-- Video Container - 9:16 aspect ratio -->
+                        <div class="relative rounded-2xl overflow-hidden bg-black/50">
+                            <video class="w-full aspect-[9/16] object-cover max-h-[500px] sm:max-h-[600px]" controls
+                                preload="metadata" poster="">
+                                <source src="assets/Video_2025-12-23T11-2.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                            <!-- Play Overlay (visible when paused) -->
+                            <div
+                                class="video-overlay absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                                <div
+                                    class="w-16 h-16 sm:w-20 sm:h-20 bg-accent/90 rounded-full flex items-center justify-center transform scale-90 group-hover:scale-100 transition-transform duration-300">
+                                    <svg class="w-6 h-6 sm:w-8 sm:h-8 text-deep-black" fill="currentColor"
+                                        viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd"
+                                            d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"
+                                            clip-rule="evenodd" />
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Video Info -->
+                        <div class="mt-4 flex items-start justify-between gap-3">
+                            <div>
+                                <h3
+                                    class="text-white font-bold text-lg sm:text-xl mb-1 group-hover:text-accent transition-colors">
+                                    Creative Workflow</h3>
+                                <p class="text-gray-400 text-xs sm:text-sm leading-relaxed">Watch AI produce stunning
+                                    content effortlessly.</p>
+                            </div>
+                            <div
+                                class="flex-shrink-0 w-9 h-9 sm:w-10 sm:h-10 bg-accent/10 rounded-xl flex items-center justify-center group-hover:bg-accent/20 transition-colors">
+                                <svg class="w-4 h-4 sm:w-5 sm:h-5 text-accent" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA after videos -->
+            <div class="fade-up text-center mt-16">
+                <p class="text-gray-500 text-sm mb-4">Ready to create like this?</p>
+                <a href="https://tally.so/r/0Q7vVZ" target="_blank"
+                    class="inline-flex items-center gap-2 bg-accent text-deep-black font-semibold px-8 py-4 rounded-full btn-scale hover:bg-accent-dark">
+                    <span>Join the Waitlist</span>
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
     <!-- FEATURES SECTION (Bento Grid - Light Mode) -->
     <!-- ============================================ -->
     <section id="features" class="bg-light-bg py-24 md:py-32">
@@ -315,7 +482,7 @@
             <!-- Section Header -->
             <div class="text-center mb-16">
                 <span
-                    class="fade-up inline-block text-accent bg-accent/10 px-4 py-1.5 rounded-full text-sm font-semibold mb-4">Why
+                    class="fade-up inline-block text-accent bg-deep-black px-4 py-1.5 rounded-full text-sm font-semibold mb-4">Why
                     Join Early?</span>
                 <h2 class="fade-up text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
                     Features Worth Waiting For
@@ -327,7 +494,7 @@
 
             <!-- Bento Grid -->
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Feature 1 - Large Card -->
+                <!-- Feature 1 - Large Card: AI Power -->
                 <div class="fade-up lg:col-span-2 glass-card-light rounded-3xl p-8 md:p-10 card-lift group">
                     <div
                         class="w-14 h-14 bg-accent rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
@@ -337,61 +504,63 @@
                             </path>
                         </svg>
                     </div>
-                    <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4">AI-Powered Intelligence</h3>
+                    <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4">AI-Powered Video Creation</h3>
                     <p class="text-gray-600 text-lg leading-relaxed">
-                        Harness cutting-edge machine learning models that understand context, predict your needs, and
-                        deliver results that feel almost magical. Our AI adapts to your unique creative style.
+                        Transform your product images into stunning marketing videos with the power of AI. No editing
+                        skills required — just upload and let the magic happen.
                     </p>
                 </div>
 
-                <!-- Feature 2 -->
+                <!-- Feature 2: One Click -->
                 <div class="fade-up glass-card-light rounded-3xl p-8 card-lift group">
                     <div
                         class="w-14 h-14 bg-gray-900 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                         <svg class="w-7 h-7 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-3">Lightning Fast</h3>
-                    <p class="text-gray-600 leading-relaxed">
-                        Generate content in seconds, not minutes. Our optimized infrastructure ensures you never wait.
-                    </p>
-                </div>
-
-                <!-- Feature 3 -->
-                <div class="fade-up glass-card-light rounded-3xl p-8 card-lift group">
-                    <div
-                        class="w-14 h-14 bg-gray-900 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                        <svg class="w-7 h-7 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z">
+                                d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122">
                             </path>
                         </svg>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-3">Privacy First</h3>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">One-Click Generation</h3>
                     <p class="text-gray-600 leading-relaxed">
-                        Your data stays yours. End-to-end encryption with zero data retention policies.
+                        Create multiple professional videos with a single click. Save hours of manual work.
                     </p>
                 </div>
 
-                <!-- Feature 4 -->
+                <!-- Feature 3: Pro Quality -->
                 <div class="fade-up glass-card-light rounded-3xl p-8 card-lift group">
                     <div
                         class="w-14 h-14 bg-gray-900 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                         <svg class="w-7 h-7 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z">
+                                d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z">
                             </path>
                         </svg>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-3">Intuitive Design</h3>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Professional Quality</h3>
                     <p class="text-gray-600 leading-relaxed">
-                        Beautiful interface that feels natural from day one. No learning curve, just pure creativity.
+                        Get studio-grade videos ready for TikTok, Reels, and ads. Built for creators who demand
+                        excellence.
                     </p>
                 </div>
 
-                <!-- Feature 5 - Large Card -->
+                <!-- Feature 4: Time Saving -->
+                <div class="fade-up glass-card-light rounded-3xl p-8 card-lift group">
+                    <div
+                        class="w-14 h-14 bg-gray-900 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <svg class="w-7 h-7 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z">
+                            </path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Save 10+ Hours Weekly</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        What takes video editors hours, VeoForge does in minutes. Focus on selling, not editing.
+                    </p>
+                </div>
+
+                <!-- Feature 5 - Large Card: Desktop App -->
                 <div
                     class="fade-up lg:col-span-2 glass-card-light rounded-3xl p-8 md:p-10 card-lift group overflow-hidden relative">
                     <div
@@ -402,14 +571,14 @@
                             class="w-14 h-14 bg-accent rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                             <svg class="w-7 h-7 text-deep-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z">
+                                    d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
                                 </path>
                             </svg>
                         </div>
-                        <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4">Beta Exclusive Community</h3>
+                        <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4">Powerful Desktop Experience</h3>
                         <p class="text-gray-600 text-lg leading-relaxed">
-                            Join a private community of early adopters, get direct access to our development team, and
-                            shape the product roadmap. Your feedback becomes features.
+                            A dedicated desktop app built for speed and reliability. Manage your video library, export
+                            with one click, and enjoy automatic updates with new features.
                         </p>
                     </div>
                 </div>
@@ -448,7 +617,7 @@
                 </div>
                 <div class="glass-card rounded-3xl p-8 text-center">
                     <div class="text-5xl md:text-6xl font-bold text-accent mb-2">Q1</div>
-                    <div class="text-gray-400 font-medium">2025 Launch Target</div>
+                    <div class="text-gray-400 font-medium">2026 Launch Target</div>
                 </div>
             </div>
         </div>
@@ -582,7 +751,7 @@
 
                     <!-- Copyright -->
                     <p class="text-gray-600 text-sm">
-                        © 2024 VeoForge. All rights reserved.
+                        © 2025 VeoForge. All rights reserved.
                     </p>
                 </div>
             </div>
